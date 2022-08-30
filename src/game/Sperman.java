@@ -19,6 +19,6 @@ public class Sperman extends BaseHero{
     }
 
     public String getInfo() {
-        return String.format("Class Spearman ::: %s", super.getInfo());
+        return String.format("Class \u001B[36m Spearman \u001B[37m \t:::\t %s", super.getInfo());
     }
 }

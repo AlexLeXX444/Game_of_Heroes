@@ -23,6 +23,6 @@ public class Peasant extends BaseHero {
     }
 
     public String getInfo() {
-        return String.format("Class Peasant ::: %s", super.getInfo());
+        return String.format("Class \u001B[30m Peasant \u001B[37m \t:::\t %s", super.getInfo());
     }
 }

@@ -24,6 +24,6 @@ public class Sniper extends BaseHero{
     }
 
     public String getInfo() {
-        return String.format("Class Sniper ::: %s", super.getInfo());
+        return String.format("Class \u001B[35m Sniper \u001B[37m \t:::\t %s", super.getInfo());
     }
 }

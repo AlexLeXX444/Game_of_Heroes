@@ -23,6 +23,6 @@ public class Wizard extends BaseHero{
     }
 
     public String getInfo() {
-        return String.format("Class Wizard ::: %s", super.getInfo());
+        return String.format("Class \u001B[34m Wizard \u001B[37m \t:::\t %s", super.getInfo());
     }
 }

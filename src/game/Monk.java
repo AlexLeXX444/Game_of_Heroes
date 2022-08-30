@@ -23,6 +23,6 @@ public class Monk extends BaseHero{
     }
 
     public String getInfo() {
-        return String.format("Class monk ::: %s", super.getInfo());
+        return String.format("Class \u001B[32m monk \u001B[37m \t:::\t %s", super.getInfo());
     }
 }

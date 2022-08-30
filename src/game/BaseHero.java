@@ -25,7 +25,7 @@ public class BaseHero {
     }
 
     public String getInfo() {
-        return String.format("Name %s ::: HP %d", this.name, this.healPoint);
+        return String.format("Name %s \t:::\t HP %d \t:::\t Damage %d", this.name, this.healPoint, this.damage);
     }
 
 /*
