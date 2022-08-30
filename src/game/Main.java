@@ -8,8 +8,11 @@ public class Main {
         //System.out.println(heroBrin.getInfo());
         //Rogue rog1 = new Rogue("Roga1", 10, 8, new int[] {2, 4}, 3, 6);
         //System.out.println(rog1.getInfo());
-        Sniper snip1 = new Sniper("Snip One", 15, 12, new int[] {8, 10}, 10, 9, 32);
+        //Sniper snip1 = new Sniper("Snip One", 15, 12, new int[] {8, 10}, 10, 9, 32);
         //System.out.println(snip1.getInfo());
-        //Wizard mag1 = new Wizard("Mage One", 30, -5,)
+        //Wizard mag1 = new Wizard("Mage One", 30, 17, new int[] {-5, -5}, 12, 9);
+        //System.out.println(mag1.getInfo());
+        Sperman sp1 = new Sperman("Spearmn One", 10, 4, new int[] {1, 3}, 5, 4);
+        System.out.println(sp1.getInfo());
     }
 }
