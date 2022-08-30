@@ -14,7 +14,9 @@ public class Main {
         //System.out.println(mag1.getInfo());
         //Sperman sp1 = new Sperman("Spearmn One", 10, 4, new int[] {1, 3}, 5, 4);
         //System.out.println(sp1.getInfo());
-        Crossbowman cs1 = new Crossbowman("Csmas One", 10, 12, new int[] {2, 3}, 3, 4, 16);
-        System.out.println(cs1.getInfo());
+        //Crossbowman cs1 = new Crossbowman("Csmas One", 10, 12, new int[] {2, 3}, 3, 4, 16);
+        //System.out.println(cs1.getInfo());
+        Monk mk1 = new Monk( 30, 12, new int[] {-4, -4}, 7, 5);
+        System.out.println(mk1.getInfo());
     }
 }
