@@ -1,7 +1,7 @@
 package game;
 
 public class Monk extends BaseHero{
-    private boolean maic;
+    private boolean magic;
 
     /**
      * Args of class:
@@ -14,12 +14,12 @@ public class Monk extends BaseHero{
      */
     public Monk(String name, int healPoint, int damage, int[] attack, int defence, int speed) {
         super(name, healPoint, damage, attack, defence, speed);
-        this.maic = true;
+        this.magic = true;
     }
 
     public Monk(int healPoint, int damage, int[] attack, int defence, int speed) {
         super("Monk", healPoint, damage, attack, defence, speed);
-        this.maic = true;
+        this.magic = true;
     }
 
     public String getInfo() {
