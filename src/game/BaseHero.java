@@ -1,7 +1,12 @@
 package game;
 
+<<<<<<< HEAD
 public class BaseHero implements ActionsHero{
     private int[] attack;
+=======
+public abstract class BaseHero {
+    private int[] attack = new int[2];
+>>>>>>> e8a2ce2 (a)
     private int defence;
     private int speed;
     private int damage;
