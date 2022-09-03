@@ -1,6 +1,6 @@
 package game;
 
-public class BaseHero {
+public class BaseHero implements ActionsHero{
     private int[] attack;
     private int defence;
     private int speed;
@@ -9,6 +9,7 @@ public class BaseHero {
     private final int healPoint;
     private int maxHealPoint;
     private final String name;
+    private boolean state;
 
 
     public BaseHero(String name, int healPoint, int damage, int[] attack, int defence, int speed) {
@@ -18,7 +19,9 @@ public class BaseHero {
         this.defence = defence;
         this.speed = speed;
         this.healPoint = healPoint;
+
         this.maxHealPoint = healPoint;
+        this.state = true;
 
     }
 
@@ -30,21 +33,44 @@ public class BaseHero {
         return String.format("Name %s \t:::\t HP %d \t:::\t Damage %d", this.name, this.healPoint, this.damage);
     }
 
-/*
-    public void healed(int Hp) {
-        this.hp = Hp + this.hp > this.maxHp ? this.maxHp : Hp + this.hp;
+    @Override
+    public int dealDamage() {
+        return this.damage;
     }
 
-    public void GetDamage(int damage) {
-        if (this.hp - damage > 0) {
-            this.hp -= damage;
+    @Override
+    public void getDamage(int damage) {
+        if ((this.maxHealPoint - damage) > 0 && (this.maxHealPoint - damage) < this.healPoint) {
+            this.maxHealPoint -= damage;
         }
-        // else { die(); }
+        else if ((this.maxHealPoint - damage) > this.healPoint) {
+            this.maxHealPoint = this.healPoint;
+        }
+        else {
+            this.state = false;
+        }
     }
 
-    public void Attack(BaseHero target) {
-        int damage = BaseHero.r.nextInt(10, 20);
-        target.GetDamage(damage);
+    @Override
+    public boolean getStatus() {
+        if (maxHealPoint > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
-*/
+
+    @Override
+    public void changePosition() {
+
+    }
+
+    @Override
+    public String getCondition() {
+        if (state) {
+            return String.format("Name %s \t:::\t HP %d", this.name, this.maxHealPoint);
+        } else {
+            return "Dead";
+        }
+    }
 }

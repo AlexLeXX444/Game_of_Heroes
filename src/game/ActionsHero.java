@@ -2,8 +2,8 @@ package game;
 
 public interface ActionsHero {
     int dealDamage();
-    int getDamage(int damage);
+    void getDamage(int damage);
     boolean getStatus();
-    void changePosition(); //выбираем только для мили героев.
+    void changePosition();
     String getCondition();
 }
