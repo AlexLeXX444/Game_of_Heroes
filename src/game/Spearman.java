@@ -1,6 +1,6 @@
 package game;
 
-public class Sperman extends BaseHero{
+public class Spearman extends BaseHero{
     /**
      * Args of class:
      * @param name
@@ -10,11 +10,11 @@ public class Sperman extends BaseHero{
      * @param defence
      * @param speed
      */
-    public Sperman(String name, int healPoint, int damage, int[] attack, int defence, int speed) {
+    public Spearman(String name, int healPoint, int damage, int[] attack, int defence, int speed) {
         super(name, healPoint, damage, attack, defence, speed);
     }
 
-    public Sperman(int healPoint, int damage, int[] attack, int defence, int speed) {
+    public Spearman(int healPoint, int damage, int[] attack, int defence, int speed) {
         super("spearman", healPoint, damage, attack, defence, speed);
     }
 

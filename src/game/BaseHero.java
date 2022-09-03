@@ -1,13 +1,14 @@
 package game;
 
 public class BaseHero {
-    private int[] attack = new int[2];
+    private int[] attack;
     private int defence;
     private int speed;
     private int damage;
 
-    private int healPoint;
-    private String name;
+    private final int healPoint;
+    private int maxHealPoint;
+    private final String name;
 
 
     public BaseHero(String name, int healPoint, int damage, int[] attack, int defence, int speed) {
@@ -17,6 +18,7 @@ public class BaseHero {
         this.defence = defence;
         this.speed = speed;
         this.healPoint = healPoint;
+        this.maxHealPoint = healPoint;
 
     }
 
