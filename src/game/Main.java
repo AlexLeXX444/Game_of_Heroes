@@ -6,104 +6,25 @@ public class Main {
     public static void main(String[] args) {
         int partySize = 5;
 
-        int counter = 1;
-        ArrayList<BaseHero> commandPeasants = new ArrayList<>();
-        while (commandPeasants.size() < partySize) {
-            commandPeasants.add(new Peasant(
-                    String.format("peasant %d", counter),
-                    1,
-                    1,
-                    new int[] {1, 1},
-                    0,
-                    3));
-            counter++;
-        }
+        ArrayList<BaseHero> commandPeasants = fillCommandHeroes("Peasant", partySize);
         PrintAll(commandPeasants);
 
-        counter = 1;
-        ArrayList<BaseHero> commandRogue = new ArrayList<>();
-        while (commandRogue.size() < partySize) {
-            commandRogue.add(new Rogue(
-                    String.format("rogue %d", counter),
-                    10,
-                    8,
-                    new int[] {2, 4},
-                    3,
-                    6));
-            counter++;
-        }
+        ArrayList<BaseHero> commandRogue = fillCommandHeroes("Rogue", partySize);
         PrintAll(commandRogue);
 
-        counter = 1;
-        ArrayList<BaseHero> commandSniper = new ArrayList<>();
-        while (commandSniper.size() < partySize) {
-            commandSniper.add(new Sniper(
-                    String.format("sniper %d", counter),
-                    15,
-                    12,
-                    new int[] {8, 10},
-                    10,
-                    9,
-                    32));
-            counter++;
-        }
+        ArrayList<BaseHero> commandSniper = fillCommandHeroes("Sniper", partySize);
         PrintAll(commandSniper);
 
-        counter = 1;
-        ArrayList<BaseHero> commandWizard = new ArrayList<>();
-        while (commandWizard.size() < partySize) {
-            commandWizard.add(new Wizard(
-                    String.format("wizard %d", counter),
-                    30,
-                    17,
-                    new int[] {-5, -5},
-                    12,
-                    9));
-            counter++;
-        }
+        ArrayList<BaseHero> commandWizard = fillCommandHeroes("Wizard", partySize);
         PrintAll(commandWizard);
 
-        counter = 1;
-        ArrayList<BaseHero> commandSpearman = new ArrayList<>();
-        while (commandSpearman.size() < partySize) {
-            commandSpearman.add(new Spearman(
-                    String.format("spearman %d", counter),
-                    10,
-                    4,
-                    new int[] {1, 3},
-                    5,
-                    4));
-            counter++;
-        }
+        ArrayList<BaseHero> commandSpearman = fillCommandHeroes("Spearman", partySize);
         PrintAll(commandSpearman);
 
-        counter = 1;
-        ArrayList<BaseHero> commandCrossbowman = new ArrayList<>();
-        while (commandCrossbowman.size() < partySize) {
-            commandCrossbowman.add(new Crossbowman(
-                    String.format("crossbowman %d", counter),
-                    10,
-                    12,
-                    new int[] {2, 3},
-                    3,
-                    1,
-                    16));
-            counter++;
-        }
+        ArrayList<BaseHero> commandCrossbowman = fillCommandHeroes("Crossbowman", partySize);
         PrintAll(commandCrossbowman);
 
-        counter = 1;
-        ArrayList<BaseHero> commandMonk = new ArrayList<>();
-        while (commandMonk.size() < partySize) {
-            commandMonk.add(new Monk(
-                    String.format("monk %d", counter),
-                    30,
-                    12,
-                    new int[] {-4, -4},
-                    7,
-                    5));
-            counter++;
-        }
+        ArrayList<BaseHero> commandMonk = fillCommandHeroes("Monk", partySize);
         PrintAll(commandMonk);
 
 /*
@@ -113,12 +34,109 @@ public class Main {
 */
 
     }
-/*
-    public static ArrayList<BaseHero> (String className, partyCount) {
 
+    /**
+     * Fill party of heroes.
+     * @param className - Peasant, Rogue, Sniper, Wizard, Spearman, Crossbowman, Monk.
+     * @param partySize - int num of party members.
+     * @return ArrayList<> of party.
+     */
+    public static ArrayList<BaseHero> fillCommandHeroes(String className, int partySize) {
+        ArrayList<BaseHero> list = new ArrayList<>();
+        int counter = 1;
+        switch (className) {
+            case "Peasant":
+                while (list.size() < partySize) {
+                    list.add(new Peasant(
+                            String.format("peasant %d", counter),
+                            1,
+                            1,
+                            new int[]{1, 1},
+                            0,
+                            3));
+                    counter++;
+                }
+                return list;
+            case "Rogue":
+                while (list.size() < partySize) {
+                    list.add(new Rogue(
+                            String.format("rogue %d", counter),
+                            10,
+                            8,
+                            new int[] {2, 4},
+                            3,
+                            6));
+                    counter++;
+                }
+                return list;
+            case "Sniper":
+                while (list.size() < partySize) {
+                    list.add(new Sniper(
+                            String.format("sniper %d", counter),
+                            15,
+                            12,
+                            new int[] {8, 10},
+                            10,
+                            9,
+                            32));
+                    counter++;
+                }
+                return list;
+            case "Wizard":
+                while (list.size() < partySize) {
+                    list.add(new Wizard(
+                            String.format("wizard %d", counter),
+                            30,
+                            17,
+                            new int[] {-5, -5},
+                            12,
+                            9));
+                    counter++;
+                }
+                return list;
+            case "Spearman":
+                while (list.size() < partySize) {
+                    list.add(new Spearman(
+                            String.format("spearman %d", counter),
+                            10,
+                            4,
+                            new int[] {1, 3},
+                            5,
+                            4));
+                    counter++;
+                }
+                return list;
+            case "Crossbowman":
+                while (list.size() < partySize) {
+                    list.add(new Crossbowman(
+                            String.format("crossbowman %d", counter),
+                            10,
+                            12,
+                            new int[] {2, 3},
+                            3,
+                            1,
+                            16));
+                    counter++;
+                }
+                return list;
+            case "Monk":
+                while (list.size() < partySize) {
+                    list.add(new Monk(
+                            String.format("monk %d", counter),
+                            30,
+                            12,
+                            new int[] {-4, -4},
+                            7,
+                            5));
+                    counter++;
+                }
+                return list;
+            case default:
+                return list;
+        }
     }
 
- */
+
     public static void PrintAll (ArrayList<BaseHero> list) {
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i).getInfo());
