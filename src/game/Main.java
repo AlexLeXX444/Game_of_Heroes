@@ -103,6 +103,7 @@ public class Main {
 /*      for (int i = 0; i < commandCrossbowman.size(); i++) {
             System.out.println(commandCrossbowman.get(i).getInfo());
         }
+
 */
         counter = 1;
         ArrayList<Monk> commandMonk = new ArrayList<>();
@@ -120,8 +121,19 @@ public class Main {
             System.out.println(commandMonk.get(i).getInfo());
         }
 */
+        PrintAll(commandMonk);
+/*
         System.out.println(commandWizard.get(0).getCondition());
         commandWizard.get(0).getDamage(commandSniper.get(0).dealDamage());
         System.out.println(commandWizard.get(0).getCondition());
+
+ */
     }
+
+    public static void PrintAll (ArrayList<BaseHero> list) {
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i).getInfo());
+        }
+    }
+
 }
