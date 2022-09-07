@@ -30,6 +30,46 @@ public abstract class BaseHero implements ActionsHero{
         this("Default name", healPoint, damage, attack,defence, speed);
     }
 
+    public String getName() { return name; }
+    public int getHealPoint() {
+        return healPoint;
+    }
+
+    public void setDamage(int damage) { this.damage = damage; }
+    public int getDamage() { return damage; }
+
+    public void setAttack(int[] attack) {
+        this.attack = attack;
+    }
+    public int[] getAttack() {
+        return attack;
+    }
+
+    public void setDefence(int defence) {
+        this.defence = defence;
+    }
+    public int getDefence() {
+        return defence;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setMaxHealPoint(int maxHealPoint) {
+        this.maxHealPoint = maxHealPoint;
+    }
+    public int getMaxHealPoint() {
+        return maxHealPoint;
+    }
+
+    public void setState(boolean state) {
+        this.state = state;
+    }
+
     public String getInfo() {
         return String.format("Name %s \t:::\t HP %d \t:::\t Damage %d", this.name, this.healPoint, this.damage);
     }
