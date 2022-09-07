@@ -26,5 +26,10 @@ public class Peasant extends BaseHero {
         return String.format("Class \u001B[30m Peasant \u001B[37m \t:::\t %s", super.getInfo());
     }
 
-
+    public void setDelivery(boolean delivery) {
+        this.delivery = delivery;
+    }
+    public boolean getDelivery() {
+        return this.delivery;
+    }
 }

@@ -26,4 +26,11 @@ public class Sniper extends BaseHero{
     public String getInfo() {
         return String.format("Class \u001B[35m Sniper \u001B[37m \t:::\t %s", super.getInfo());
     }
+
+    public void setRangeDamage(int rangeDamage) {
+        this.rangeDamage = rangeDamage;
+    }
+    public int getRangeDamage() {
+        return rangeDamage;
+    }
 }
