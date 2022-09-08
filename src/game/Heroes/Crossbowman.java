@@ -1,0 +1,19 @@
+package game.Heroes;
+
+public class Crossbowman extends BaseHero{
+    private int rangeDamage;
+
+    public Crossbowman() {
+        super(
+                "crossbowman",
+                10,
+                12,
+                new int[] {2, 3},
+                3,
+                1
+        );
+        this.rangeDamage = 16;
+    }
+
+    public String getInfo() { return String.format("Class \u001B[33m Crossbowman \u001B[37m \t:::\t %s", super.getInfo()); }
+}

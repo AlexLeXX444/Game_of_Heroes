@@ -1,4 +1,4 @@
-package game;
+package game.Interfaces;
 
 public interface ActionsHero {
     int dealDamage();
