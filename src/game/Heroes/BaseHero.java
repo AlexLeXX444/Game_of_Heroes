@@ -13,23 +13,26 @@ public abstract class BaseHero implements ActionsHero {
     private int maxHealPoint;
     private final String name;
     private boolean state;
+    private int[] position;
+    private final String commandName;
 
-
-    public BaseHero(String name, int healPoint, int damage, int[] attack, int defence, int speed) {
+    public BaseHero(String commandName, String name, int healPoint, int damage, int[] attack, int defence, int speed, int[] position) {
+        this.commandName = commandName;
         this.name = name;
         this.damage = damage;
         this.attack = attack;
         this.defence = defence;
         this.speed = speed;
         this.healPoint = healPoint;
+        this.position = position;
 
         this.maxHealPoint = healPoint;
         this.state = true;
 
     }
 
-    public BaseHero (int healPoint, int damage, int[] attack, int defence, int speed) {
-        this("Default name", healPoint, damage, attack,defence, speed);
+    public BaseHero (String commandName, String name, int healPoint, int damage, int[] attack, int defence, int speed) {
+        this(commandName,name, healPoint, damage, attack,defence, speed, new int[] {0, 0});
     }
 
     public String getInfo() {

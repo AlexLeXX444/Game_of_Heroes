@@ -1,14 +1,16 @@
 package game.Heroes;
 
 public class Spearman extends BaseHero{
-    public Spearman() {
+    public Spearman(String commandName, int posX, int posY) {
         super(
+                commandName,
                 "spearman",
                 10,
                 4,
                 new int[] {1, 3},
                 5,
-                4
+                4,
+                new int[] {posX, posY}
         );
     }
 

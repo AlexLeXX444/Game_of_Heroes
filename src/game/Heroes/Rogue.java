@@ -1,14 +1,16 @@
 package game.Heroes;
 
 public class Rogue extends BaseHero{
-    public Rogue() {
+    public Rogue(String commandName, int posX, int posY) {
         super(
+                commandName,
                 "rogue",
                 10,
                 8,
                 new int[] {2, 4},
                 3,
-                6
+                6,
+                new int[] {posX, posY}
         );
     }
 
