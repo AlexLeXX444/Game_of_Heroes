@@ -73,12 +73,30 @@ public class Main {
                 step++;
                 System.out.printf("\u001B[37m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{_________ Step %3s __________}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", step);
                 System.out.println(whosTurn);
-                rnd.nextInt(10);
-                if (stepTeam == "WhiteSide") { attackHero(whiteSide.get(rnd.nextInt(10)), darkSide.get(rnd.nextInt(10))); }
-                else { attackHero(darkSide.get(rnd.nextInt(10)), whiteSide.get(rnd.nextInt(10))); }
+                BaseHero attackHero, attackedHero;
+
+                if (stepTeam == "WhiteSide") {
+                    attackHero = choseHero(whiteSide);
+                    attackedHero = choseHero(darkSide);
+                    stepTeam = "DarkSide";
+                } else {
+                    attackHero = choseHero(darkSide);
+                    attackedHero = choseHero(whiteSide);
+                    stepTeam = "WhiteSide";
+                }
+
+                attackHero(attackHero, attackedHero);
+
                 for (int i = 0; i < darkSide.size(); i++) { System.out.println(darkSide.get(i).getInfo() + "\t:\t" + whiteSide.get(i).getInfo()); }
-                if (stepTeam == "WhiteSide") { stepTeam = "DarkSide"; }
-                else { stepTeam = "WhiteSide"; }
+
+                if (isKilledAll(darkSide)) {
+                    System.out.println("White side WINNER !!!");
+                    break;
+                }
+                if (isKilledAll(whiteSide)) {
+                    System.out.println("Dark side WINNER !!!");
+                    break;
+                }
                 System.out.println("МЕНЮ : q , quit - выход; n , next - передача хода;");
             }
         }
@@ -88,41 +106,27 @@ public class Main {
         getDamageHero.getDamage(dealDamageHero.dealDamage());
         return getDamageHero;
     }
-/*
-    public static ArrayList<BaseHero> fillCommand (String commandName, int charNum) {
-        ArrayList<BaseHero> list = new ArrayList<>();
+
+    public static BaseHero choseHero (ArrayList<BaseHero> list) {
         Random rnd = new Random();
-        while (list.size() < charNum) {
-            switch (rnd.nextInt(7)){
-                case 0:
-                    list.add(new Monk(commandName, 0,0));
-                    break;
-                case 1:
-                    list.add(new Rogue(commandName, 0,0));
-                    break;
-                case 2:
-                    list.add(new Sniper(commandName, 0,0));
-                    break;
-                case 3:
-                    list.add(new Wizard(commandName, 0,0));
-                    break;
-                case 4:
-                    list.add(new Spearman(commandName, 0,0));
-                    break;
-                case 5:
-                    list.add(new Crossbowman(commandName, 0,0));
-                    break;
-                default:
-                    list.add(new Peasant(commandName, 0,0));
-            }
+        int numOfHero = rnd.nextInt(10);
+        while (list.get(numOfHero).getStatus() == false) {
+            numOfHero = rnd.nextInt(10);
         }
-        return list;
+        return list.get(numOfHero);
     }
 
-    public static void PrintAll (ArrayList<BaseHero> list) {
+    public static boolean isKilledAll (ArrayList<BaseHero> list) {
+        int counter = 0;
         for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i).getInfo());
+            if (list.get(i).getStatus() == false) {
+                counter++;
+            }
+        }
+        if (counter == list.size()) {
+            return true;
+        } else {
+            return false;
         }
     }
-*/
 }
