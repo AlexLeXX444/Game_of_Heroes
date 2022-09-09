@@ -17,5 +17,5 @@ public class Crossbowman extends BaseHero{
         this.rangeDamage = 16;
     }
 
-    public String getInfo() { return String.format("Class \u001B[33m Crossbowman \u001B[37m \t:::\t %s", super.getInfo()); }
+    public String getInfo() { return String.format("Class\u001B[33m %-11s \u001B[37m::\t %s", "Crossbowman", super.getInfo()); }
 }
