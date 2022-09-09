@@ -36,7 +36,9 @@ public abstract class BaseHero implements ActionsHero {
     }
 
     public String getInfo() {
-        return String.format("Name %s \t:::\t HP %d \t:::\t Damage %d", this.name, this.healPoint, this.damage);
+        String status = "\u001B[31mDead\u001B[37m";
+        if (this.state) { status = "\u001B[32mLive\u001B[37m"; }
+        return String.format("HP %4d :: DM %4d :: ST %5s", this.maxHealPoint, this.damage, status);
     }
 
     @Override
@@ -53,6 +55,7 @@ public abstract class BaseHero implements ActionsHero {
             this.maxHealPoint = this.healPoint;
         }
         else {
+            this.maxHealPoint = 0;
             this.state = false;
         }
     }

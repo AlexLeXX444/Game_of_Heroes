@@ -17,5 +17,5 @@ public class Wizard extends BaseHero{
         this.magic = true;
     }
 
-    public String getInfo() { return String.format("Class \u001B[34m Wizard \u001B[37m \t:::\t %s", super.getInfo()); }
+    public String getInfo() { return String.format("Class\u001B[34m %-11s \u001B[37m::\t %s", "Wizard", super.getInfo()); }
 }

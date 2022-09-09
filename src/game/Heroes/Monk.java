@@ -17,5 +17,5 @@ public class Monk extends BaseHero{
         this.magic = true;
     }
 
-    public String getInfo() { return String.format("Class \u001B[32m Monk \u001B[37m \t:::\t %s", super.getInfo()); }
+    public String getInfo() { return String.format("Class\u001B[32m %-11s \u001B[37m::\t %s", "Monk", super.getInfo()); }
 }

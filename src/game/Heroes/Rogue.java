@@ -14,5 +14,5 @@ public class Rogue extends BaseHero{
         );
     }
 
-    public String getInfo() { return String.format("Class \u001B[31m Rogue \u001B[37m \t:::\t %s", super.getInfo()); }
+    public String getInfo() { return String.format("Class\u001B[31m %-11s \u001B[37m::\t %s", "Rogue", super.getInfo()); }
 }
