@@ -77,15 +77,27 @@ public class Main {
 
                 if (stepTeam == "WhiteSide") {
                     attackHero = choseHero(whiteSide);
-                    attackedHero = choseHero(darkSide);
+                    if (attackHero.getClass() == Monk.class || attackHero.getClass() == Wizard.class) {
+                        attackedHero = choseHero(whiteSide);
+                        healHero(attackHero, attackedHero);
+                    } else {
+                        attackedHero = choseHero(darkSide);
+                        attackHero(attackHero, attackedHero);
+                    }
                     stepTeam = "DarkSide";
                 } else {
                     attackHero = choseHero(darkSide);
-                    attackedHero = choseHero(whiteSide);
+                    if (attackHero.getClass() == Monk.class || attackHero.getClass() == Wizard.class) {
+                        attackedHero = choseHero(darkSide);
+                        healHero(attackHero, attackedHero);
+                    } else {
+                        attackedHero = choseHero(whiteSide);
+                        attackHero(attackHero, attackedHero);
+                    }
                     stepTeam = "WhiteSide";
                 }
 
-                attackHero(attackHero, attackedHero);
+                System.out.println(String.format("%s  :::  %s \n", attackHero.getInfo(), attackedHero.getInfo()));
 
                 for (int i = 0; i < darkSide.size(); i++) { System.out.println(darkSide.get(i).getInfo() + "\t:\t" + whiteSide.get(i).getInfo()); }
 
@@ -104,6 +116,11 @@ public class Main {
 
     public static BaseHero attackHero (BaseHero dealDamageHero, BaseHero getDamageHero) {
         getDamageHero.getDamage(dealDamageHero.dealDamage());
+        return getDamageHero;
+    }
+
+    public static BaseHero healHero (BaseHero dealHealingHero, BaseHero getDamageHero) {
+        getDamageHero.getDamage(dealHealingHero.dealHealing());
         return getDamageHero;
     }
 

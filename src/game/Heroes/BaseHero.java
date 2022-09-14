@@ -32,7 +32,7 @@ public abstract class BaseHero implements ActionsHero {
     }
 
     public BaseHero (String commandName, String name, int healPoint, int damage, int[] attack, int defence, int speed) {
-        this(commandName,name, healPoint, damage, attack,defence, speed, new int[] {0, 0});
+        this(commandName, name, healPoint, damage, attack, defence, speed, new int[] {0, 0});
     }
 
     public String getInfo() {
@@ -45,6 +45,9 @@ public abstract class BaseHero implements ActionsHero {
     public int dealDamage() {
         return this.damage;
     }
+
+    @Override
+    public int dealHealing() {return (this.damage * -1); }
 
     @Override
     public void getDamage(int damage) {
