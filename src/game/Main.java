@@ -1,56 +1,67 @@
 package game;
 
 import game.Heroes.*;
-
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Scanner;
+import game.Board.*;
+import java.util.*;
+import static game.ConsoleOut.printField;
 
 public class Main {
     public static void main(String[] args) {
-        int step = 1;
-        String stepTeam = "DarkSide";
-        ArrayList<BaseHero> darkSide = new ArrayList<>();
-        ArrayList<BaseHero> whiteSide = new ArrayList<>();
+        System.out.print("\u001B[37m");
+        int boardLenght = 10, boardHeigth = 10;
+        List<Cell> myBoard = new ArrayList<>();
 
-        darkSide.add(new Peasant("darkSide", 0,0));
-        darkSide.add(new Rogue("darkSide", 0,0));
-        darkSide.add(new Sniper("darkSide", 0,0));
-        darkSide.add(new Wizard("darkSide", 0,0));
+        for (int i = 1; i <= boardLenght; i++) {
+           for (int j = 1; j <= boardHeigth; j++) {
+               myBoard.add(new Cell(String.format("%s-%s", i, j), new int[]{i, j}));
+           }
+       }
+
+        printField(myBoard);
+
+/*        int step = 1;
+        String stepTeam = "DarkSide";
+        List<BaseHero> darkSide = new ArrayList<>();
+        List<BaseHero> whiteSide = new ArrayList<>();
+
+        darkSide.add(new Peasant("DarkSide", 0,0));
+        darkSide.add(new Rogue("DarkSide", 0,0));
+        darkSide.add(new Sniper("DarkSide", 0,0));
+        darkSide.add(new Wizard("DarkSide", 0,0));
         Random rnd = new Random();
         for (int i = 0; i < 6; i++) {
             switch (rnd.nextInt(4)){
                 case 0:
-                    darkSide.add(new Peasant("darkSide", 0,0));
+                    darkSide.add(new Peasant("DarkSide", 0,0));
                     break;
                 case 1:
-                    darkSide.add(new Rogue("darkSide", 0,0));
+                    darkSide.add(new Rogue("DarkSide", 0,0));
                     break;
                 case 2:
-                    darkSide.add(new Sniper("darkSide", 0,0));
+                    darkSide.add(new Sniper("DarkSide", 0,0));
                     break;
                 default:
-                    darkSide.add(new Wizard("darkSide", 0,0));
+                    darkSide.add(new Wizard("DarkSide", 0,0));
             }
         }
 
-        whiteSide.add(new Peasant("whiteSide", 0,0));
-        whiteSide.add(new Monk("whiteSide", 0,0));
-        whiteSide.add(new Crossbowman("whiteSide", 0,0));
-        whiteSide.add(new Spearman("whiteSide", 0,0));
+        whiteSide.add(new Peasant("WhiteSide", 0,0));
+        whiteSide.add(new Monk("WhiteSide", 0,0));
+        whiteSide.add(new Crossbowman("WhiteSide", 0,0));
+        whiteSide.add(new Spearman("WhiteSide", 0,0));
         for (int i = 0; i < 6; i++) {
             switch (rnd.nextInt(4)){
                 case 0:
-                    whiteSide.add(new Peasant("whiteSide", 0,0));
+                    whiteSide.add(new Peasant("WhiteSide", 0,0));
                     break;
                 case 1:
-                    whiteSide.add(new Monk("whiteSide", 0,0));
+                    whiteSide.add(new Monk("WhiteSide", 0,0));
                     break;
                 case 2:
-                    whiteSide.add(new Crossbowman("whiteSide", 0,0));
+                    whiteSide.add(new Crossbowman("WhiteSide", 0,0));
                     break;
                 default:
-                    whiteSide.add(new Spearman("whiteSide", 0,0));
+                    whiteSide.add(new Spearman("WhiteSide", 0,0));
             }
         }
 
@@ -109,9 +120,13 @@ public class Main {
                     System.out.println("Dark side WINNER !!!");
                     break;
                 }
+                System.out.println();
+                printField(myBoard);
                 System.out.println("МЕНЮ : q , quit - выход; n , next - передача хода;");
             }
         }
+
+
     }
 
     public static BaseHero attackHero (BaseHero dealDamageHero, BaseHero getDamageHero) {
@@ -124,7 +139,7 @@ public class Main {
         return getDamageHero;
     }
 
-    public static BaseHero choseHero (ArrayList<BaseHero> list) {
+    public static BaseHero choseHero (List<BaseHero> list) {
         Random rnd = new Random();
         int numOfHero = rnd.nextInt(10);
         while (list.get(numOfHero).getStatus() == false) {
@@ -133,7 +148,7 @@ public class Main {
         return list.get(numOfHero);
     }
 
-    public static boolean isKilledAll (ArrayList<BaseHero> list) {
+    public static boolean isKilledAll (List<BaseHero> list) {
         int counter = 0;
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getStatus() == false) {
@@ -144,6 +159,6 @@ public class Main {
             return true;
         } else {
             return false;
-        }
+        }*/
     }
 }
