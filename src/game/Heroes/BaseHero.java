@@ -41,6 +41,9 @@ public abstract class BaseHero implements ActionsHero {
         return String.format("HP %4d :: DM %4d :: ST %5s", this.maxHealPoint, this.damage, status);
     }
 
+    public String getCommandName() {
+        return this.commandName;
+    }
     @Override
     public int dealDamage() {
         return this.damage;
