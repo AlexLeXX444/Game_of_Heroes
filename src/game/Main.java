@@ -17,9 +17,7 @@ public class Main {
            }
        }
 
-        printField(myBoard);
-
-/*        int step = 1;
+        int step = 1;
         String stepTeam = "DarkSide";
         List<BaseHero> darkSide = new ArrayList<>();
         List<BaseHero> whiteSide = new ArrayList<>();
@@ -42,6 +40,12 @@ public class Main {
                     break;
                 default:
                     darkSide.add(new Wizard("DarkSide", 0,0));
+            }
+        }
+
+        for (int i = 1; i <= boardLenght; i++) {
+            for (int j = 1; j <= boardHeigth; j++) {
+
             }
         }
 
@@ -121,7 +125,7 @@ public class Main {
                     break;
                 }
                 System.out.println();
-                printField(myBoard);
+                printField(myBoard, boardLenght, boardHeigth);
                 System.out.println("МЕНЮ : q , quit - выход; n , next - передача хода;");
             }
         }
@@ -159,6 +163,6 @@ public class Main {
             return true;
         } else {
             return false;
-        }*/
+        }
     }
 }
