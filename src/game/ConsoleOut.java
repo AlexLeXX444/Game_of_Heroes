@@ -7,9 +7,11 @@ import java.util.List;
 public class ConsoleOut {
 
 
-    public static void printField(List<Cell> celler, int width, int height) {
+    public static void printField(List<Cell> celler) {
         if (!celler.isEmpty()) {
             int counter1 = 0, counter2 = 0;
+            int width = celler.get(celler.size() - 1).getCords()[0];
+            int height = celler.get(celler.size() - 1).getCords()[1];
             for (int k = 1; k <= width; k++) {
                 System.out.print("+-----+");
             }
