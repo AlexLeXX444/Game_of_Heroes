@@ -16,14 +16,12 @@ public class Cell extends BasedBoard{
     }
 
     @Override
-    public void fillCage(BaseHero hero, int[] cords) {
+    public void fillCage(BaseHero hero) {
         super.hero = hero;
-        super.cords = cords;
     }
 
-    public void fillCage(int[] cords) {
+    public void fillCage() {
         super.hero = new Shadow();
-        super.cords = cords;
     }
 
     public String getName() {

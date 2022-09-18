@@ -8,7 +8,7 @@ import static game.ConsoleOut.printField;
 public class Main {
     public static void main(String[] args) {
         System.out.print("\u001B[37m");
-        int boardLenght = 10, boardHeigth = 10;
+        int boardLenght = 10, boardHeigth = boardLenght;
         List<Cell> myBoard = new ArrayList<>();
 
         for (int i = 1; i <= boardLenght; i++) {
@@ -27,7 +27,7 @@ public class Main {
         darkSide.add(new Sniper("DarkSide", 0,0));
         darkSide.add(new Wizard("DarkSide", 0,0));
         Random rnd = new Random();
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < boardLenght - 4; i++) {
             switch (rnd.nextInt(4)){
                 case 0:
                     darkSide.add(new Peasant("DarkSide", 0,0));
@@ -43,17 +43,15 @@ public class Main {
             }
         }
 
-        for (int i = 1; i <= boardLenght; i++) {
-            for (int j = 1; j <= boardHeigth; j++) {
-
-            }
+        for (int i = 0, j = 0; j < darkSide.size(); i += boardLenght, j++) {
+            myBoard.get(i).fillCage(darkSide.get(j));
         }
 
         whiteSide.add(new Peasant("WhiteSide", 0,0));
         whiteSide.add(new Monk("WhiteSide", 0,0));
         whiteSide.add(new Crossbowman("WhiteSide", 0,0));
         whiteSide.add(new Spearman("WhiteSide", 0,0));
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < boardLenght - 4; i++) {
             switch (rnd.nextInt(4)){
                 case 0:
                     whiteSide.add(new Peasant("WhiteSide", 0,0));
@@ -67,6 +65,10 @@ public class Main {
                 default:
                     whiteSide.add(new Spearman("WhiteSide", 0,0));
             }
+        }
+
+        for (int i = boardLenght - 1, j = 0; j < whiteSide.size(); i += boardLenght, j++) {
+            myBoard.get(i).fillCage(whiteSide.get(j));
         }
 
         System.out.printf("\u001B[37m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{_________ Step %3s __________}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", step);
@@ -125,7 +127,7 @@ public class Main {
                     break;
                 }
                 System.out.println();
-                printField(myBoard, boardLenght, boardHeigth);
+                printField(myBoard);
                 System.out.println("МЕНЮ : q , quit - выход; n , next - передача хода;");
             }
         }
@@ -145,9 +147,9 @@ public class Main {
 
     public static BaseHero choseHero (List<BaseHero> list) {
         Random rnd = new Random();
-        int numOfHero = rnd.nextInt(10);
+        int numOfHero = rnd.nextInt(list.size());
         while (list.get(numOfHero).getStatus() == false) {
-            numOfHero = rnd.nextInt(10);
+            numOfHero = rnd.nextInt(list.size());
         }
         return list.get(numOfHero);
     }

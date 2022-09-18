@@ -6,7 +6,7 @@ import game.Interfaces.BoardField;
 
 public abstract class BasedBoard implements BoardField {
     protected BaseHero hero;
-    protected int[] cords;
+    protected final int[] cords;
 
     @Override
     public BaseHero getHero() { return hero; }
